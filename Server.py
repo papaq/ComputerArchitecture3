@@ -1,12 +1,12 @@
-__author__ = 'solomon'
-
 from pysimplesoap.server import SoapDispatcher, SOAPHandler
 from BaseHTTPServer import HTTPServer
 import redis
 
+__author__ = 'solomon'
+
 
 def testf(t):
-    return 2 * t
+    return t * t
 
 
 def create(key, val):
@@ -25,7 +25,7 @@ def read(key):
 def update(key, val):
     if r.exists(key):
         r.set(key, val)
-        return "Success"
+        return "Success!"
     return "Fail! Record with key \"" + key + "\" was not found!"
 
 
@@ -47,7 +47,8 @@ dispatcher.register_function("ReadRecord", read, returns={'Result': int}, args={
 dispatcher.register_function("UpdateRecord", update, returns={'Result': int}, args={"key": str, "val": str})
 dispatcher.register_function("DeleteRecord", delete, returns={'Result': int}, args={"key": str})
 
-r = redis.StrictRedis(host='localhost', port=8000)
+r = redis.StrictRedis(host='localhost', port=6379)
 server_address = ('', 8000)
 httpd = HTTPServer(server_address, SOAPHandler)
+httpd.dispatcher = dispatcher
 httpd.serve_forever()

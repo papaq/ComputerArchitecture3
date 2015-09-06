@@ -64,10 +64,11 @@ def list_is_num(_list):
     return True
 
 
-result = testf(5)['MultResult']
+result = testf(5).MultResult
 print int(result)
 
 while True:
+    print
     show_commands()
     response = "No response"
 
@@ -79,9 +80,9 @@ while True:
 
     if 1 == operation or 3 == operation:
         inp = _key_and_val()
-        if not list_is_num(inp):
-            print "Invalid data"
-            continue
+        # if not list_is_num(inp):
+        #    print "Invalid data"
+        #    continue
 
         if 1 == operation:
             response = create(inp[0], inp[1])
@@ -90,9 +91,9 @@ while True:
 
     elif 2 == operation or 4 == operation:
         inp = _key()
-        if not list_is_num(inp):
-            print "Invalid data"
-            continue
+        # if not list_is_num(inp):
+        #    print "Invalid data"
+        #    continue
 
         if 2 == operation:
             response = read(inp[0])
