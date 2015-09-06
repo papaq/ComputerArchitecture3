@@ -37,7 +37,7 @@ def delete(key):
 
 
 dispatcher = SoapDispatcher(
-    'dididispatcher',
+    'di-di-dispatcher',
     location="http://localhost:8008/")
 
 dispatcher.register_function("testf", testf, returns={'MultResult': int}, args={'t': int})
