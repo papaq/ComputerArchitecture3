@@ -108,4 +108,3 @@ while True:
         continue
 
     print response.Result
-    print
