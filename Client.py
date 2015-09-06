@@ -1,5 +1,4 @@
-from sys import stdin
-from pysimplesoap.client import SoapClient, SoapFault
+from pysimplesoap.client import SoapClient
 
 __author__ = 'solomon'
 
