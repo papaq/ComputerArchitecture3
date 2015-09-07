@@ -37,31 +37,13 @@ def show_commands():
 
 
 def _key():
-    key = [raw_input('Key: ')]
-    return key
-
-
-# wtf
-def key_and_val():
-    key = _key()
-    val = raw_input('Value: ')
-    return key.append(val)
+    return [raw_input('Key: ')]
 
 
 def _key_and_val():
     key = _key()
-    val = raw_input('Value: ')
-    key.append(val)
+    key.append(raw_input('Value: '))
     return key
-
-
-def list_is_num(_list):
-    for elem in _list:
-        try:
-            int(elem)
-        except ValueError:
-            return False
-    return True
 
 
 result = testf(5).MultResult
@@ -80,9 +62,6 @@ while True:
 
     if 1 == operation or 3 == operation:
         inp = _key_and_val()
-        # if not list_is_num(inp):
-        #    print "Invalid data"
-        #    continue
 
         if 1 == operation:
             response = create(inp[0], inp[1])
@@ -91,9 +70,6 @@ while True:
 
     elif 2 == operation or 4 == operation:
         inp = _key()
-        # if not list_is_num(inp):
-        #    print "Invalid data"
-        #    continue
 
         if 2 == operation:
             response = read(inp[0])
